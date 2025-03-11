@@ -117,7 +117,7 @@ public class BaseTest {
 
 	}
 
-	public void getEnvJsonData() throws IOException {
+	public void getEnvJsonData() throws IOException { // could be removed
 		abstractComponent = new AbstractComponent(driver);
 		envJson = abstractComponent.envJson;
 	}
@@ -125,7 +125,7 @@ public class BaseTest {
 	@BeforeMethod(alwaysRun = true)
 	public void launchApp() throws IOException {
 		driver = initializeDriver();
-		abstractComponent = new AbstractComponent(driver);
+		abstractComponent = new AbstractComponent(driver); // instead the super in pom already invoking the abstract class
 		envJson = abstractComponent.envJson;
 		loginPage = new LoginPage(driver);
 		loginPage.goTo();

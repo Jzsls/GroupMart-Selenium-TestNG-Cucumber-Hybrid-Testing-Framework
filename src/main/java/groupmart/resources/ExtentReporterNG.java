@@ -18,6 +18,9 @@ public class ExtentReporterNG {
 		extent.attachReporter(reporter);
 		// setting the tester name
 		extent.setSystemInfo("Tester", "Zia Lodhi");
+		extent.setSystemInfo("OS Name", System.getProperty("os.name"));
+        extent.setSystemInfo("OS Version", System.getProperty("os.version"));
+        extent.setSystemInfo("Java Version", System.getProperty("java.version"));
 		return extent;
 	}
 

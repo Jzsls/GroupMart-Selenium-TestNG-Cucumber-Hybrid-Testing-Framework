@@ -13,7 +13,7 @@ import groupmart.AbstractComponents.AbstractComponent;
 public class LoginPage extends AbstractComponent {
 
 	WebDriver driver;
-	String url = "https://rahulshettyacademy.com/client";// added in env.json
+	String url = "https://rahulshettyacademy.com/client";// added in env.json. could be removed
 	By incorrectLoginErrorText = By.className("toast-message");
 	By emailInvalidityText = By.xpath("//div[contains(text(),'Enter Valid Email')]");
 	By emptyEmailError = By.xpath("//div[contains(text(),'Email is required')]");
