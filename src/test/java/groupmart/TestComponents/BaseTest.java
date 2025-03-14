@@ -38,7 +38,7 @@ import groupmart.pageobjects.OrdersPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	protected WebDriver driver;
+	public WebDriver driver;
 	protected LoginPage loginPage;
 	protected OrdersPage ordersPage;
 	protected AbstractComponent abstractComponent;
@@ -123,13 +123,17 @@ public class BaseTest {
 	}
 
 	@BeforeMethod(alwaysRun = true)
-	public void launchApp() throws IOException {
+	public LoginPage launchApp() throws IOException {
 		driver = initializeDriver();
-		abstractComponent = new AbstractComponent(driver); // instead the super in pom already invoking the abstract class
-		envJson = abstractComponent.envJson;
-		loginPage = new LoginPage(driver);
-		loginPage.goTo();
-		// return loginPage;
+		if (driver != null) {
+			abstractComponent = new AbstractComponent(driver); // instead the super in pom already invoking the abstract
+																// class
+			envJson = abstractComponent.envJson;
+			loginPage = new LoginPage(driver);
+			loginPage.goTo();
+			return loginPage;
+		}
+		return null;
 	}
 
 	@AfterMethod(alwaysRun = true)
