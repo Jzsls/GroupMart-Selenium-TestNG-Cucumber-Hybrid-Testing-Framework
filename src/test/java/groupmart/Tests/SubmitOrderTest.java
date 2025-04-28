@@ -52,7 +52,7 @@ public class SubmitOrderTest extends BaseTest {
 		Assert.assertTrue(true);
 
 	}
-	// data generating method
+	// data generating methodd
 	@Test(dataProvider = "getData", dependsOnMethods = { "submitOrder" })
 	public void productInOrderHistoryTest(HashMap<String, String> user) throws IOException {
 		ProductCatalogue productCatalogue = loginPage.appLogin(user.get("email"), user.get("password"));
